@@ -1,19 +1,12 @@
 server:
   port: 80
 
-cloud:
-  aws:
-    credentials:
-      access-key: xxx
-      secret-key: xxx
-    region:
-      static: ap-south-1
-      auto: false
-    stack:
-      auto: false
+cloud:  aws:    credentials:      use-default-aws-credentials-chain: true
+    region:      use-default-aws-region-chain: true
+    stack:      auto: false
 
 kms:
-  keyArn: "arn:aws:kms:xxx:xxx:key/mrk-xxx"
+  keyArn: "arn:aws:kms:${region}:${accountId}:key/mrk-${keyId}"
   
 logging:
   level:
