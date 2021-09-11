@@ -6,7 +6,9 @@ cloud:  aws:    credentials:      use-default-aws-credentials-chain: true
     stack:      auto: false
 
 kms:
-  keyArn: "arn:aws:kms:${region}:${accountId}:key/mrk-${keyId}"
+  keyArn: 
+    asymmetric: arn:aws:kms:${region}:${accountId}:key/mrk-${asymmetricKeyId}
+    symmetric: "arn:aws:kms:${region}:${accountId}:key/mrk-${symmetricKeyId}"
   
 logging:
   level:
